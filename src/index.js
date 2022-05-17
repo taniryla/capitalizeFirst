@@ -60,15 +60,18 @@ function capitalizeFirst(arr) {
   // base case
   // once arr.length is zero, move from pushing in the recursion stack to popping
   if (arr.length === 1) {
-    return [arr[0].toUpperCase()];
+    return [arr[0][0].toUpperCase() + arr[0].substr(1)];
   }
 
   //main logic
   // capitalize the first letter
-  // this -> T + his
   // pushing subarray to recursion stack
   let res = capitalizeFirst(arr.slice(0, -1));
-  res.push(arr.slice(arr.length - 1)[0].toUpperCase());
+  // this -> T + his
+  const string =
+    arr.slice(arr.length - 1)[0][0].toUpperCase() +
+    arr.slice(arr.length - 1)[0].substr(1);
+  res.push(string);
   return res;
 }
 /*
