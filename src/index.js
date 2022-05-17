@@ -60,7 +60,7 @@ function capitalizeFirst(arr) {
   // base case
   // once arr.length is zero, move from pushing in the recursion stack to popping
   if (arr.length === 1) {
-    return arr[0].toUpperCase();
+    return [arr[0].toUpperCase()];
   }
 
   //main logic
@@ -69,6 +69,7 @@ function capitalizeFirst(arr) {
   // pushing subarray to recursion stack
   let res = capitalizeFirst(arr.slice(0, -1));
   res.push(arr.slice(arr.length - 1)[0].toUpperCase());
+  return res;
 }
 /*
 []  ---> length = 0
